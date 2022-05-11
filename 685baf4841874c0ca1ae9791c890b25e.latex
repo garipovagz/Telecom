@@ -1,0 +1,794 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+
+\#Лабораторная работа 1 Гарипова Гульзира 3530901/90101
+
+\#Упражнение 1.1
+
+Прочитать пояснения и запустить примеры.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Get thinkdsp.py}
+
+\ImportTok{import}\NormalTok{ os}
+\ControlFlowTok{if} \KeywordTok{not}\NormalTok{ os.path.exists(}\StringTok{\textquotesingle{}thinksdsp.py\textquotesingle{}}\NormalTok{):}
+  \OperatorTok{!}\NormalTok{wget https:}\OperatorTok{//}\NormalTok{github.com}\OperatorTok{/}\NormalTok{AllenDowney}\OperatorTok{/}\NormalTok{ThinkDSP}\OperatorTok{/}\NormalTok{raw}\OperatorTok{/}\NormalTok{master}\OperatorTok{/}\NormalTok{code}\OperatorTok{/}\NormalTok{thinkdsp.py}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+--2022-03-05 07:43:54--  https://github.com/AllenDowney/ThinkDSP/raw/master/code/thinkdsp.py
+Resolving github.com (github.com)... 140.82.112.3
+Connecting to github.com (github.com)|140.82.112.3|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/AllenDowney/ThinkDSP/master/code/thinkdsp.py [following]
+--2022-03-05 07:43:55--  https://raw.githubusercontent.com/AllenDowney/ThinkDSP/master/code/thinkdsp.py
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 48687 (48K) [text/plain]
+Saving to: ‘thinkdsp.py’
+
+thinkdsp.py         100%[===================>]  47.55K  --.-KB/s    in 0.01s   
+
+2022-03-05 07:43:55 (4.71 MB/s) - ‘thinkdsp.py’ saved [48687/48687]
+
+\end{verbatim}
+
+Сигналы
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ thinkdsp }\ImportTok{import}\NormalTok{ CosSignal, SinSignal}
+\ImportTok{from}\NormalTok{ thinkdsp }\ImportTok{import}\NormalTok{ decorate}
+
+\NormalTok{cos\_sig }\OperatorTok{=}\NormalTok{ CosSignal(freq}\OperatorTok{=}\DecValTok{440}\NormalTok{, amp}\OperatorTok{=}\FloatTok{1.0}\NormalTok{, offset}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
+\NormalTok{sin\_sig }\OperatorTok{=}\NormalTok{ SinSignal(freq}\OperatorTok{=}\DecValTok{880}\NormalTok{, amp}\OperatorTok{=}\FloatTok{0.5}\NormalTok{, offset}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
+
+\NormalTok{cos\_sig.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=} \StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/072155176c25bdf51f2e9cbf10bf449797880acc.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sin\_sig.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=} \StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/34a59332bf0f4e788a01cd849ce6e95f93195f7e.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mix }\OperatorTok{=}\NormalTok{ sin\_sig }\OperatorTok{+}\NormalTok{ cos\_sig}
+\NormalTok{mix}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<thinkdsp.SumSignal at 0x7f98d8cf7d90>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mix.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/3a26113f9c6554fd33856224b448e06e5b836d97.png}
+
+Волны
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wave }\OperatorTok{=}\NormalTok{ mix.make\_wave(duration}\OperatorTok{=}\FloatTok{0.5}\NormalTok{, start}\OperatorTok{=}\DecValTok{0}\NormalTok{, framerate}\OperatorTok{=}\DecValTok{11025}\NormalTok{)}
+\NormalTok{wave}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<thinkdsp.Wave at 0x7f98d8c41d90>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ IPython.display }\ImportTok{import}\NormalTok{ Audio}
+\NormalTok{audio }\OperatorTok{=}\NormalTok{ Audio(data}\OperatorTok{=}\NormalTok{wave.ys, rate}\OperatorTok{=}\NormalTok{wave.framerate)}
+\NormalTok{audio}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wave.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Number of samples\textquotesingle{}}\NormalTok{, }\BuiltInTok{len}\NormalTok{(wave.ys))}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Timestep in ms\textquotesingle{}}\NormalTok{, }\DecValTok{1} \OperatorTok{/}\NormalTok{ wave.framerate }\OperatorTok{*} \DecValTok{1000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Number of samples 5512
+Timestep in ms 0.09070294784580499
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{period }\OperatorTok{=}\NormalTok{ mix.period}
+\NormalTok{segment }\OperatorTok{=}\NormalTok{ wave.segment(start}\OperatorTok{=}\DecValTok{0}\NormalTok{, duration}\OperatorTok{=}\NormalTok{period}\OperatorTok{*}\DecValTok{3}\NormalTok{)}
+\NormalTok{period}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+0.0022727272727272726
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{segment.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/3a26113f9c6554fd33856224b448e06e5b836d97.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wave.normalize()}
+\NormalTok{wave.apodize()}
+\NormalTok{wave.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/881c4ad19d3a1023d459a9e9b7a5a00025349394.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wave.write(filename}\OperatorTok{=}\StringTok{\textquotesingle{}temp.wav\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Writing temp.wav
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ thinkdsp }\ImportTok{import}\NormalTok{ play\_wave}
+
+\NormalTok{play\_wave(filename}\OperatorTok{=}\StringTok{\textquotesingle{}temp.wav\textquotesingle{}}\NormalTok{, player}\OperatorTok{=}\StringTok{\textquotesingle{}aplay\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ os}
+\ControlFlowTok{if} \KeywordTok{not}\NormalTok{ os.path.exists(}\StringTok{\textquotesingle{}92002\_\_jcveliz\_\_violin{-}origional.wav\textquotesingle{}}\NormalTok{):}
+  \OperatorTok{!}\NormalTok{wget https:}\OperatorTok{//}\NormalTok{github.com}\OperatorTok{/}\NormalTok{AllenDowney}\OperatorTok{/}\NormalTok{ThinkDSP}\OperatorTok{/}\NormalTok{raw}\OperatorTok{/}\NormalTok{master}\OperatorTok{/}\NormalTok{code}\OperatorTok{/}\DecValTok{92002}\NormalTok{\_\_jcveliz\_\_violin}\OperatorTok{{-}}\NormalTok{origional.wav}
+  
+\ImportTok{from}\NormalTok{ thinkdsp }\ImportTok{import}\NormalTok{ read\_wave}
+
+\NormalTok{wave }\OperatorTok{=}\NormalTok{ read\_wave(}\StringTok{\textquotesingle{}92002\_\_jcveliz\_\_violin{-}origional.wav\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+--2022-02-21 19:28:35--  https://github.com/AllenDowney/ThinkDSP/raw/master/code/92002__jcveliz__violin-origional.wav
+Resolving github.com (github.com)... 140.82.114.4
+Connecting to github.com (github.com)|140.82.114.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/AllenDowney/ThinkDSP/master/code/92002__jcveliz__violin-origional.wav [following]
+--2022-02-21 19:28:35--  https://raw.githubusercontent.com/AllenDowney/ThinkDSP/master/code/92002__jcveliz__violin-origional.wav
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 441044 (431K) [audio/wav]
+Saving to: ‘92002__jcveliz__violin-origional.wav’
+
+92002__jcveliz__vio 100%[===================>] 430.71K  --.-KB/s    in 0.003s  
+
+2022-02-21 19:28:35 (129 MB/s) - ‘92002__jcveliz__violin-origional.wav’ saved [441044/441044]
+
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wave.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{start }\OperatorTok{=} \FloatTok{1.2}
+\NormalTok{duration }\OperatorTok{=} \FloatTok{0.6}
+\NormalTok{segment }\OperatorTok{=}\NormalTok{ wave.segment(start, duration)}
+\NormalTok{segment.plot()}
+\NormalTok{decorate(xlabel }\OperatorTok{=} \StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/34765669a0f172d143882515c5fa581830d6338d.png}
+
+Спектры
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum }\OperatorTok{=}\NormalTok{ segment.make\_spectrum()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Frequency (Hz)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/5f50483f2c94544c706db8c4d8474c1d05f8a4bd.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum.plot(high}\OperatorTok{=}\DecValTok{10000}\NormalTok{)}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Frequency (Hz)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/1a2b3db511b38e57f8705bcc9f380b20ce419b26.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum.low\_pass(}\DecValTok{3000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum.plot(high}\OperatorTok{=}\DecValTok{10000}\NormalTok{)}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Frequency (Hz)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/768bbc6f741e576d445fde58310e135909f44511.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filtered }\OperatorTok{=}\NormalTok{ spectrum.make\_wave()}
+\NormalTok{filtered.normalize()}
+\NormalTok{filtered.apodize()}
+
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filtered.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/6b5d9092d67387896b62170007465afeeeb94bb2.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{segment.normalize()}
+\NormalTok{segment.apodize()}
+\NormalTok{segment.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/5438ff2603c36ce46e2184b05069a08eeabf27f5.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{segment.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filtered.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+Взаимодействия
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\ImportTok{from}\NormalTok{ IPython.display }\ImportTok{import}\NormalTok{ display}
+
+\KeywordTok{def}\NormalTok{ filter\_wave(wave, start, duration, cutoff):}
+    \CommentTok{"""Selects a segment from the wave and filters it.}
+\CommentTok{    }
+\CommentTok{    Plots the spectrum and displays an Audio widget.}
+\CommentTok{    }
+\CommentTok{    wave: Wave object}
+\CommentTok{    start: time in s}
+\CommentTok{    duration: time in s}
+\CommentTok{    cutoff: frequency in Hz}
+\CommentTok{    """}
+\NormalTok{    segment }\OperatorTok{=}\NormalTok{ wave.segment(start, duration)}
+\NormalTok{    spectrum }\OperatorTok{=}\NormalTok{ segment.make\_spectrum()}
+
+\NormalTok{    spectrum.plot(color}\OperatorTok{=}\StringTok{\textquotesingle{}0.7\textquotesingle{}}\NormalTok{)}
+\NormalTok{    spectrum.low\_pass(cutoff)}
+\NormalTok{    spectrum.plot(color}\OperatorTok{=}\StringTok{\textquotesingle{}\#045a8d\textquotesingle{}}\NormalTok{)}
+\NormalTok{    decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Frequency (Hz)\textquotesingle{}}\NormalTok{)}
+\NormalTok{    plt.show()}
+    
+\NormalTok{    audio }\OperatorTok{=}\NormalTok{ spectrum.make\_wave().make\_audio()}
+\NormalTok{    display(audio)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ ipywidgets }\ImportTok{import}\NormalTok{ interact, fixed}
+
+\NormalTok{wave }\OperatorTok{=}\NormalTok{ read\_wave(}\StringTok{\textquotesingle{}92002\_\_jcveliz\_\_violin{-}origional.wav\textquotesingle{}}\NormalTok{)}
+\NormalTok{interact(filter\_wave, wave}\OperatorTok{=}\NormalTok{fixed(wave), }
+\NormalTok{         start}\OperatorTok{=}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\FloatTok{0.1}\NormalTok{), duration}\OperatorTok{=}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\FloatTok{0.1}\NormalTok{), cutoff}\OperatorTok{=}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10000}\NormalTok{, }\DecValTok{100}\NormalTok{))}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}\DataTypeTok{"version\_major"}\FunctionTok{:}\DecValTok{2}\FunctionTok{,}\DataTypeTok{"version\_minor"}\FunctionTok{:}\DecValTok{0}\FunctionTok{,}\DataTypeTok{"model\_id"}\FunctionTok{:}\StringTok{"2d432f708d134a66a0d293c5cc1ffb8c"}\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{ux443ux43fux440ux430ux436ux43dux435ux43dux438ux435-12}{%
+\section{Упражнение
+1.2}\label{ux443ux43fux440ux430ux436ux43dux435ux43dux438ux435-12}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if} \KeywordTok{not}\NormalTok{ os.path.exists(}\StringTok{\textquotesingle{}186942\_\_lemoncreme\_\_piano{-}melody.wav\textquotesingle{}}\NormalTok{):}
+  \OperatorTok{!}\NormalTok{wget https:}\OperatorTok{//}\NormalTok{github.com}\OperatorTok{/}\NormalTok{garipovagz}\OperatorTok{/}\NormalTok{Telecom}\OperatorTok{/}\NormalTok{raw}\OperatorTok{/}\NormalTok{main}\OperatorTok{/}\NormalTok{sounds}\OperatorTok{/}\DecValTok{186942}\NormalTok{\_\_lemoncreme\_\_piano}\OperatorTok{{-}}\NormalTok{melody.wav}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+--2022-02-21 19:28:59--  https://github.com/garipovagz/Telecom/raw/main/sounds/186942__lemoncreme__piano-melody.wav
+Resolving github.com (github.com)... 140.82.113.4
+Connecting to github.com (github.com)|140.82.113.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/garipovagz/Telecom/main/sounds/186942__lemoncreme__piano-melody.wav [following]
+--2022-02-21 19:28:59--  https://raw.githubusercontent.com/garipovagz/Telecom/main/sounds/186942__lemoncreme__piano-melody.wav
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1798222 (1.7M) [audio/wav]
+Saving to: ‘186942__lemoncreme__piano-melody.wav’
+
+186942__lemoncreme_ 100%[===================>]   1.71M  --.-KB/s    in 0.01s   
+
+2022-02-21 19:28:59 (167 MB/s) - ‘186942__lemoncreme__piano-melody.wav’ saved [1798222/1798222]
+
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_wave }\OperatorTok{=}\NormalTok{ read\_wave(}\StringTok{\textquotesingle{}186942\_\_lemoncreme\_\_piano{-}melody.wav\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_wave.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_wave.plot()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/4648a4a938e77bcc6ba618ec7f553e62ed34b89e.png}
+
+Выделим сегмент, где высота постоянна
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{start }\OperatorTok{=} \DecValTok{6}
+\NormalTok{duration }\OperatorTok{=} \FloatTok{0.5}
+\NormalTok{my\_segment }\OperatorTok{=}\NormalTok{ my\_wave.segment(start, duration)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_segment.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_segment.normalize()}
+\NormalTok{my\_segment.apodize()}
+\NormalTok{my\_segment.plot()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/8ef1191f4dc83d929cdccc97e711fe08fda0a658.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum }\OperatorTok{=}\NormalTok{ my\_segment.make\_spectrum()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum.plot(high}\OperatorTok{=}\DecValTok{5000}\NormalTok{)}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Frequency (Hz)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/3994da70936d019ad8cf4196836aa6cfdf8f36b1.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum.low\_pass(}\DecValTok{1800}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spectrum.plot(high}\OperatorTok{=}\DecValTok{3000}\NormalTok{)}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Frequency (Hz)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/cce026bbdde303a5141347f55c0ca3640777b508.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new }\OperatorTok{=}\NormalTok{ spectrum.make\_wave()}
+\NormalTok{new.normalize()}
+\NormalTok{new.apodize()}
+\NormalTok{new.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/2e64fd641ed4faa7e0861c50d5420932eb88f8f2.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_segment.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+Можно заметить, что после применения фильтра нижних частот звук стал
+более приглушенным.
+
+\#Упражнение 1.3
+
+Необходимо создать сложный сигнал из объектов SinSignal и CosSignal и
+проанализировать его.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sin }\OperatorTok{=}\NormalTok{ SinSignal(freq}\OperatorTok{=}\DecValTok{110}\NormalTok{, amp}\OperatorTok{=}\FloatTok{0.8}\NormalTok{, offset}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
+\NormalTok{cos }\OperatorTok{=}\NormalTok{ CosSignal(freq}\OperatorTok{=}\DecValTok{550}\NormalTok{, amp}\OperatorTok{=}\FloatTok{0.2}\NormalTok{, offset}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
+\NormalTok{sin2 }\OperatorTok{=}\NormalTok{ SinSignal(freq}\OperatorTok{=} \DecValTok{1650}\NormalTok{, amp}\OperatorTok{=}\FloatTok{0.5}\NormalTok{, offset}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
+
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sin.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=} \StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/339e1ddc1f59ac44fc8652324ad70b3ee35adea7.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sin2.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=} \StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/3f38365d1fe679cab4f4ba3904d1e91df5354805.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cos.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=} \StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/720ccf6cff5ec9489f8a4a2e649e26b746406fbd.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new\_mix }\OperatorTok{=}\NormalTok{ sin }\OperatorTok{+}\NormalTok{ sin2 }\OperatorTok{+}\NormalTok{ cos }
+\NormalTok{new\_mix}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<thinkdsp.SumSignal at 0x7f09b3483a90>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new\_mix.plot()}
+\NormalTok{decorate(xlabel}\OperatorTok{=}\StringTok{\textquotesingle{}Time (s)\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/e94d4ce0479ed48fb657e75b11b704d97641c7e1.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mix\_wave }\OperatorTok{=}\NormalTok{ mix.make\_wave(duration}\OperatorTok{=}\FloatTok{0.7}\NormalTok{, start}\OperatorTok{=}\FloatTok{0.07}\NormalTok{, framerate}\OperatorTok{=}\DecValTok{15000}\NormalTok{)}
+\NormalTok{mix\_wave}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<thinkdsp.Wave at 0x7f09c8947d90>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mix\_wave.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mix\_spectrum }\OperatorTok{=}\NormalTok{ mix\_wave.make\_spectrum()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mix\_spectrum.plot(high}\OperatorTok{=}\DecValTok{1000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/faa5d04b65feb5f358747e2bc2c97cc15a67689c.png}
+
+Добавим частотный компонент, не кратный основному.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cos3 }\OperatorTok{=}\NormalTok{ CosSignal(freq}\OperatorTok{=}\DecValTok{897}\NormalTok{, amp}\OperatorTok{=}\FloatTok{0.6}\NormalTok{, offset}\OperatorTok{=}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new\_mix }\OperatorTok{+=}\NormalTok{ cos3}
+\NormalTok{n\_mix\_wave }\OperatorTok{=}\NormalTok{ new\_mix.make\_wave()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n\_mix\_spectrum }\OperatorTok{=}\NormalTok{  n\_mix\_wave.make\_spectrum().plot()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_685baf4841874c0ca1ae9791c890b25e/33e7402bec9d47fddbb7c2f1e7e5e6b6ed2f6ffe.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n\_mix\_wave.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\hypertarget{ux443ux43fux440ux430ux436ux43dux435ux43dux438ux435-14}{%
+\section{Упражнение
+1.4}\label{ux443ux43fux440ux430ux436ux43dux435ux43dux438ux435-14}}
+
+Необходимо написать функцию stretch, которая будет ускорять сигнал.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ stretch (wave, factor):}
+\NormalTok{  wave.ts }\OperatorTok{*=}\NormalTok{ factor}
+\NormalTok{  wave.framerate }\OperatorTok{*=}\NormalTok{ factor}
+
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_wave.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{stretch( my\_wave , }\FloatTok{0.3}\NormalTok{)}
+\NormalTok{my\_wave.make\_audio()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<IPython.lib.display.Audio object>
+\end{verbatim}
+
+\end{document}
